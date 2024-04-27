@@ -100,7 +100,7 @@ label{
     .container {
         margin: 0 10px; /* Adjust the margin for small screens */
         border-radius: 30px;
-        height: 70vh;
+        height: 90vh;
         overflow-y: auto;
         overflow-x: hidden;
     }
