@@ -1,0 +1,108 @@
+/* rgb(190, 216, 186) */
+
+.container {
+    background-color: rgb(190, 216, 186);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /*Use 100% of the viewport height*/
+    max-width: 65%; /*Adjust the maximum width as needed*/
+    border: 2px solid white;
+    border-radius: 100px;
+    /* padding: 10%; */
+}
+
+body {
+    background-color:black;
+    height: 100vh; /* Set body height to 100% of viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center; /* Center child horizontally */
+    align-items: center; /* Center child vertically */
+  }
+
+.container table{
+    text-align: center;
+}
+
+td input[type="number"]{
+    text-align: center;
+}
+
+.table td{
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 0%;
+    padding: 0px;
+    width: 0vh !important;
+
+}
+
+.table th{
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 0%;
+    padding: 0%;
+    width: 0vh !important;
+    max-width: 150px !important;
+}
+
+input[type="number"] {
+    display: inline-flex;
+    text-align: center;
+    width: 75%; /* Full width by default */
+    /* max-width: 300px; */
+    padding: 10px; 
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 55px; /* Border radius */ 
+    margin-top: 10px;
+    margin-bottom:10px ;
+  }
+
+.btn{
+    margin: 10px;
+}
+
+#resHeading, #resAppending{
+    padding: 1%;
+}
+
+
+
+
+/* --------------MEDIA QUERIES------------*/
+
+/* Media query for typical smartphones */
+@media (max-width: 575.98px) {
+    .container {
+        margin: 0 10px; /* Adjust the margin for small screens */
+        border-radius: 30px;
+        height: 60vh;
+    }
+    input[type="number"]{
+        width: 100%;
+    }
+    
+}
+
+/* Media query for larger smartphones */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .container {
+        margin: 0 20px; /* Adjust the margin for medium-sized screens */
+        border-radius: 30px;
+        height: 60vh;
+    }
+}
+
+/* Media query for landscape orientation on smartphones */
+@media (max-width: 991.98px) and (orientation: landscape) {
+    .container {
+        margin: 0 30px; /* Adjust the margin for landscape orientation */
+        border-radius: 30px;
+        height: 100vh;
+    }
+}
