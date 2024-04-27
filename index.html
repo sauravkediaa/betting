@@ -41,37 +41,38 @@
                     <tr>
                         <td colspan="1" style="text-align: center">
                         <td colspan="2" style="text-align: center">
-                            <button class="btn btn-primary" onclick="shareDistribution()">Calculate</button>
-                            <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                            <button class="btn btn-primary" onclick="shareDistribution()"
+                                title="Calculate (Enter)">Calculate</button>
+                            <button class="btn btn-secondary" onclick="resetForm()" title="Reset (Esc)">Reset</button>
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="1" style="text-align: right">Transfer Direction: </th>
-                        <td colspan="2" style="text-align: left">
-                            <div class="transfer" >
+                        <th colspan="1" style="text-align: right" id="resHeading">Transfer Direction: </th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resAppending">
+                            <div class="transfer">
                                 <p id="transferDirection" style="text-align: left; margin-bottom: 0%;"></p>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="1" style="text-align: right">Amount:</th>
-                        <td colspan="2" style="text-align: left; margin-bottom: 0%;">
+                        <th colspan="1" style="text-align: right" id="resHeading">Amount:</th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resAppending">
                             <div class="showdata">
                                 <p id="amount" style="text-align: left; margin-bottom: 0%;"></p>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="1" style="text-align: right">Total Profit:</th>
-                        <td colspan="2" style="text-align: left; margin-bottom: 0%;">
+                        <th colspan="1" style="text-align: right" id="resHeading">Total Profit:</th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resAppending">
                             <div class="showdata">
                                 <p id="totalProfit" style="text-align: left; margin-bottom: 0%;"></p>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="1" style="text-align: right">Profit per user:</th>
-                        <td colspan="2" style="text-align: left; margin-bottom: 0%;">
+                        <th colspan="1" style="text-align: right" id="resHeading">Profit per user:</th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resAppending">
                             <div class="showdata">
                                 <p id="userProfit" style="text-align: left; margin-bottom: 0%;"></p>
                             </div>

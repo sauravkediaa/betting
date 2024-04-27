@@ -18,89 +18,22 @@ function shareDistribution() {
 
     // Determine transfer direction and amount
     let transferAmount;
-
-
-    let flag = 0;       //flag 0 => B to A , 1 => A to B              0 => stake of A is higher ; 1 => stake of B is higher
-    //-1 => no transfer needed
-
     let transferDirection = 0;  //0=> B to A , 1=> A to B
 
-    if (stakeA > stakeB) {
-        flag = 0;   //B will pay half of the difference amount to A
-        differenceStake = (stakeA - stakeB) / 2;
+
+    if (profitA < profitB) {
+        transferAmount = (profitB - profitA) / 2;
+        transferDirection = 0;      //B to A 
+
+    } else if (profitA > profitB) {
+        transferAmount = (profitA - profitB) / 2;
+        transferDirection = 1;      //A to B 
+
+    } else if (profitA == profitB) {
+        transferAmount = 0;
+        transferDirection = -1;     //no transfer;
     }
-    else if (stakeA < stakeB) {
-        flag = 1;   //A will pay half of the difference amount to B
-        differenceStake = (stakeB - stakeA) / 2;
-    }
-    else if (stakeA == stakeB) {
-        flag = -1;
-        differenceStake = 0;
-    }
 
-
-    if (flag == 0) {            //B to A        stakeA is greater
-        if (profitA < profitB) {        //B to A
-            transferAmount = differenceStake + (profitB - profitA) / 2;
-            transferDirection = 0;      //B to A 
-
-        } else if (profitA > profitB) {
-            balance = (profitA - profitB) / 2;
-
-            if (differenceStake > balance) {
-                transferAmount = differenceStake - balance;
-                transferDirection = 0;      //B to A
-            } else if (differenceStake < balance) {
-                transferAmount = balance - differenceStake;
-                transferDirection = 1;      //A to B
-            } else if (differenceStake == balance) {
-                transferAmount = 0;
-                transferDirection = -1;     //no transfer needed
-            }
-
-        } else if (profitA == profitB) {
-            transferAmount = differenceStake;
-            transferDirection = 0;     //B to A;
-        }
-    }
-    else if (flag == 1) {            //A to B        stakeB is greater
-        if (profitA < profitB) {        //B to A
-            transferAmount = differenceStake + (profitB - profitA) / 2;
-            transferDirection = 1;      //A to B 
-
-        } else if (profitA > profitB) {
-            balance = (profitB - profitA) / 2;
-
-            if (differenceStake > balance) {
-                transferAmount = differenceStake - balance;
-                transferDirection = 1;      //A to B
-            } else if (differenceStake < balance) {
-                transferAmount = balance - differenceStake;
-                transferDirection = 0;      //B to A
-            } else if (differenceStake == balance) {
-                transferAmount = 0;
-                transferDirection = -1;     //no transfer needed
-            }
-
-        } else if (profitA == profitB) {
-            transferAmount = differenceStake;
-            transferDirection = 1;     //A to B;
-        }
-    }
-    else if (flag == -1) {            //no transfer of stake        stakeA == stakeB
-        if (profitA < profitB) {        //B to A
-            transferAmount = (profitB - profitA) / 2;
-            transferDirection = 0;      //B to A 
-
-        } else if (profitA > profitB) {
-            transferAmount = (profitA - profitB) / 2;
-            transferDirection = 1;      //A to B 
-
-        } else if (profitA == profitB) {
-            transferAmount = 0;
-            transferDirection = -1;     //no transfer;
-        }
-    }
 
     // Round off transferAmount to 2 decimal places
     transferAmount = transferAmount.toFixed(2);
@@ -113,9 +46,9 @@ function shareDistribution() {
     const userPNL = document.getElementById('userProfit');
 
     if (transferDirection == 0) {
-        direction.textContent = "B to A";
+        direction.textContent = "User B --> User A";
     } else if (transferDirection == 1) {
-        direction.textContent = "A to B";
+        direction.textContent = "User A --> User B";
     } else if (transferDirection == -1) {
         direction.textContent = "No transfer Required";
     }
@@ -140,3 +73,21 @@ function resetForm() {
     document.getElementById('userProfit').textContent = '';
 
 }
+
+// Function to handle keydown event on input fields
+function handleEnterKeyPress(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault(); // Prevent default action of Enter key
+        shareDistribution(); // Call shareDistribution function to calculate
+    }
+    if (event.keyCode == 27) {
+        event.preventDefault();
+        resetForm();
+    }
+}
+
+// Add event listeners to input fields to trigger shareDistribution function on Enter key press
+document.getElementById('stakeA').addEventListener('keydown', handleEnterKeyPress);
+document.getElementById('stakeB').addEventListener('keydown', handleEnterKeyPress);
+document.getElementById('profitLossA').addEventListener('keydown', handleEnterKeyPress);
+document.getElementById('profitLossB').addEventListener('keydown', handleEnterKeyPress);
