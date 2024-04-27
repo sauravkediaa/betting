@@ -2,7 +2,7 @@
 
 .container {
     background-color: rgb(190, 216, 186);
-    height: 100vh; /*Use 100% of the viewport height*/
+    height: 80vh; /*Use 100% of the viewport height*/
     max-width: 75%; /*Adjust the maximum width as needed*/
     border: 2px solid white;
     border-radius: 100px;
@@ -234,7 +234,7 @@ input[type="number"] {
 @media (max-width: 768px) {
     body {
         background-color:black;
-        height: 75vh; /* Set body height to 100% of viewport height */
+        height: 100vh; /* Set body height to 100% of viewport height */
         margin: 0; /* Remove default margin */
         display: flex;
         justify-content: center; /* Center child horizontally */
