@@ -234,7 +234,7 @@ input[type="number"] {
 @media (max-width: 768px) {
     body {
         background-color:black;
-        height: 100vh; /* Set body height to 100% of viewport height */
+        height: 75vh; /* Set body height to 100% of viewport height */
         margin: 0; /* Remove default margin */
         display: flex;
         justify-content: center; /* Center child horizontally */
