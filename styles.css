@@ -2,7 +2,7 @@
 
 .container {
     background-color: rgb(190, 216, 186);
-    height: 80vh; /*Use 100% of the viewport height*/
+    height: 100vh; /*Use 100% of the viewport height*/
     max-width: 75%; /*Adjust the maximum width as needed*/
     border: 2px solid white;
     border-radius: 100px;
