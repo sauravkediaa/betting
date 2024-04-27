@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Distribution Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+    </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+
+<body>
+    <div class="mobile-only">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-padding text-right" id="colStake">
+                        <label for="stakeA">Stake of User A</label>
+                        <input type="number" class="form-control" placeholder="A's Stake" id="stakeA1">
+                    </div>
+                    <div class="col-padding text-right" id="colStake">
+                        <label for="profitLossA">Withdrawn by User A</label>
+                        <input type="number" class="form-control" placeholder="A's Withdrawn" id="profitLossA1">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-padding text-right" id="colStake">
+                        <label for="stakeB">Stake of User B</label>
+                        <input type="number" class="form-control" placeholder="B's Stake" id="stakeB1">
+                    </div>
+                    <div class="col-padding text-right" id="colStake">
+                        <label for="profitLossB">Withdrawn by User B</label>
+                        <input type="number" class="form-control" placeholder="B's Withdrawn" id="profitLossB1">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 offset-md-12">
+                    <div class="col-padding text-center">
+                        <button class="btn btn-primary m-2" onclick="shareDistribution()">Calculate</button>
+                        <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="result text-left">
+                        <p class="resHeading">Transfer Direction: <span id="transferDirection1" style="font-weight: normal;"></span></p>
+                        <p class="resHeading">Amount: <span id="amount1" style="font-weight: normal;"></span></p>
+                        <p class="resHeading">Total Profit: <span id="totalProfit1" style="font-weight: normal;"></span></p>
+                        <p class="resHeading">Profit per user: <span id="userProfit1" style="font-weight: normal;"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="desktop-only">
+        <div class="table-responsive">
+            <table class="table table-borderless">
+                <colgroup>
+                    <col style="width: 20%;">
+                    <col style="width: 40%;">
+                    <col style="width: 40%;">
+
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>User A</th>
+                        <th>User B</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th style="text-align: right; vertical-align: middle;">STAKED</th>
+                        <td><input type="number" class="form-control" placeholder="A's Stake" id="stakeA"></td>
+                        <td><input type="number" class="form-control" placeholder="B's Stake" id="stakeB"></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right; vertical-align: middle;">WITHDRAWN</th>
+                        <td><input type="number" class="form-control" placeholder="A's Withdrawn" id="profitLossA"></td>
+                        <td><input type="number" class="form-control" placeholder="B's Withdrawn" id="profitLossB"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="text-align: center">
+                        <td colspan="2" style="text-align: center">
+                            <button class="btn btn-primary" onclick="shareDistribution()">Calculate</button>
+                            <button class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="1" style="text-align: right" id="resHeading">Transfer Direction: </th>
+                        <td colspan="2" style="text-align: left" id="resHeading">
+                            <div class="transfer">
+                                <p id="transferDirection" style="text-align: left; margin-bottom: 0%;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="1" style="text-align: right" id="resHeading">Amount:</th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resHeading">
+                            <div class="showdata">
+                                <p id="amount" style="text-align: left; margin-bottom: 0%;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="1" style="text-align: right" id="resHeading">Total Profit:</th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resHeading">
+                            <div class="showdata">
+                                <p id="totalProfit" style="text-align: left; margin-bottom: 0%;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="1" style="text-align: right" id="resHeading">Profit per user:</th>
+                        <td colspan="2" style="text-align: left; margin-bottom: 0%;" id="resHeading">
+                            <div class="showdata">
+                                <p id="userProfit" style="text-align: left; margin-bottom: 0%;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Your custom script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
