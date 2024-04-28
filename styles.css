@@ -134,9 +134,18 @@ label{
 /* Media query for landscape orientation on smartphones */
 @media (max-width: 991.98px) and (orientation: landscape) {
     .container {
-        margin: 0 30px; /* Adjust the margin for landscape orientation */
+        margin: 0 0px; /* Adjust the margin for landscape orientation */
         border-radius: 30px;
-        height: 100vh;
+        height: 80vh;
+        padding: 25% 5%;
+        line-height:1.2;
+        letter-spacing: -0.5px;
+        word-spacing: -1px;
+    }
+    body {
+        padding: 5%; /* Adjust as needed */
+        margin: 5%; /* Adjust as needed */
+        overflow:auto;
     }
 }
 
@@ -246,8 +255,8 @@ input[type="number"] {
         display: flex;
         justify-content: center; /* Center child horizontally */
         align-items: center; /* Center child vertically */
-        overflow-y: hidden;
-        overflow-x: hidden;
+        /* overflow-y: hidden;
+        overflow-x: hidden; */
       }
 
     .container{
