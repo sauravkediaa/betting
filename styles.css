@@ -236,18 +236,25 @@ input[type="number"] {
         background-color:black;
         height: 100vh; /* Set body height to 100% of viewport height */
         margin: 0; /* Remove default margin */
+        padding: 0%;
         display: flex;
         justify-content: center; /* Center child horizontally */
         align-items: center; /* Center child vertically */
+      }
+
+    .container{
+        margin: 0%;
+        overflow-y:auto;
+        overflow-x: hidden !important;
+        height: 80%;
       }
     .mobile-only{
         display: flex;
         justify-content: center;
         text-align: center;
-        margin: 0 10px; /* Adjust the margin for small screens */
+        margin: 0 0px; /* Adjust the margin for small screens */
         border-radius: 30px;
-        height: 70vh;
-        overflow-y: auto;
+        /* height: 75vh; */
         overflow-x: hidden !important;
     }
     input[type="number"]{
