@@ -255,8 +255,8 @@ input[type="number"] {
         display: flex;
         justify-content: center; /* Center child horizontally */
         align-items: center; /* Center child vertically */
-        /* overflow-y: hidden;
-        overflow-x: hidden; */
+        overflow-y: hidden;
+        overflow-x: hidden;
       }
 
     .container{
